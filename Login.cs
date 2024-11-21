@@ -191,6 +191,13 @@ namespace Maintenance_Application
                     this.Close();
                     return this;
 
+                case -1:
+
+                    this.Hide();
+                    Home Homesss = new Home(LoggedInUsername);
+                    Homesss.ShowDialog();
+                    this.Close();
+                    return this;
 
 
                 // Return form for Control

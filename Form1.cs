@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Maintenance_Application
@@ -28,16 +29,16 @@ namespace Maintenance_Application
         {
             // You can add functionality here if needed
         }
+        private bool isProgrammaticChange = false; // To track programmatic changes
 
         // Update this event to populate Roomcombo based on the selected AreaID
         private void Areacombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Check if the form has fully loaded
-            if (!isFormLoaded) return;
+            // Prevent logic for programmatic changes
+            if (!isFormLoaded || isProgrammaticChange) return;
 
             if (Areacombo.SelectedValue is int areaID)
             {
-                // Populate Roomcombo with rooms for the selected area
                 PopulateRoomComboBox(areaID);
             }
             else
@@ -45,6 +46,7 @@ namespace Maintenance_Application
                 MessageBox.Show("Please select a valid area.");
             }
         }
+
 
 
         private void Roomcombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,27 +75,35 @@ namespace Maintenance_Application
         {
             // Gather the input values
             string fullName = Fullusernametxt.Text.Trim();
-            string maintenanceType = Maintenancetypecombo.Text.Trim(); // Handle case where nothing is selected
+            string maintenanceType = Maintenancetypecombo.Text.Trim();
             int areaID = Areacombo.SelectedValue != null ? Convert.ToInt32(Areacombo.SelectedValue) : 0;
             int roomID = Roomcombo.SelectedValue != null ? Convert.ToInt32(Roomcombo.SelectedValue) : 0;
             string notes = Notestxt.Text.Trim();
 
-            // Ensure the required fields are populated
             if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(maintenanceType) || areaID == 0 || roomID == 0)
             {
                 MessageBox.Show("Please ensure all fields are filled in correctly.");
                 return;
             }
 
-            // Retrieve UserID using the FullName from Fullusernametxt
             int userID = GetUserIDByFullName(fullName);
 
-            if (userID > 0) // Ensure valid UserID is found
+            if (userID > 0)
             {
-                // Try to insert the request into the Requests table
                 try
                 {
                     InsertRequest(userID, maintenanceType, areaID, roomID, notes);
+
+                    // Clear the fields after successful submission
+                    isProgrammaticChange = true; // Indicate programmatic changes
+                   
+                    Maintenancetypecombo.SelectedIndex = -1;
+                    Areacombo.SelectedIndex = -1;
+                    Roomcombo.SelectedIndex = -1;
+                    Notestxt.Clear();
+                    isProgrammaticChange = false; // Reset the flag
+
+                    
                 }
                 catch (Exception ex)
                 {
@@ -105,6 +115,8 @@ namespace Maintenance_Application
                 MessageBox.Show("User not found!");
             }
         }
+
+
 
         // Method to retrieve UserID based on the FullName
         private int GetUserIDByFullName(string fullName)
@@ -127,6 +139,7 @@ namespace Maintenance_Application
             return userID;
         }
 
+        
         // Flag to prevent multiple submissions
         private bool isSubmitting = false;
 
@@ -148,7 +161,7 @@ namespace Maintenance_Application
                     await connection.OpenAsync(); // Use asynchronous open
                     using (SqlCommand command = new SqlCommand(
                         "INSERT INTO Requests (UserID, MaintenanceTypeID, AreaID, RoomID, Description, StatusID, DateSubmitted) " +
-                        "VALUES (@UserID, @MaintenanceType, @AreaID, @RoomID, @Description, @StatusID, @DateSubmitted)", connection))
+                        "VALUES (@UserID, @MaintenanceType, @AreaID, @RoomID, @Description, @StatusID, GETDATE())", connection)) // Use GETDATE() for server date/time
                     {
                         // Add parameters for the SQL query
                         command.Parameters.AddWithValue("@UserID", userID);
@@ -157,7 +170,6 @@ namespace Maintenance_Application
                         command.Parameters.AddWithValue("@RoomID", roomID);
                         command.Parameters.AddWithValue("@Description", notes);
                         command.Parameters.AddWithValue("@StatusID", 1); // Default status
-                        command.Parameters.AddWithValue("@DateSubmitted", DateTime.Now); // Set the current date for DateSubmitted
 
                         // Execute the command and check if rows were affected
                         int rowsAffected = await command.ExecuteNonQueryAsync(); // Use asynchronous execute

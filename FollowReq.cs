@@ -25,7 +25,7 @@ namespace Maintenance_Application
             _username = username;
             InitializeComponent();
             FollowingReqGridView.DataError += FollowingReqGridView_DataError;
-            FollowingReqGridView.EditingControlShowing += FollowingReqGridView_EditingControlShowing;
+            
           
             FollowingReqGridView.CellContentDoubleClick += FollowingReqGridView_CellContentDoubleClick;
 
@@ -148,18 +148,7 @@ namespace Maintenance_Application
 
 
 
-        private void FollowingReqGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (FollowingReqGridView.CurrentCell is DataGridViewComboBoxCell)
-            {
-                ComboBox comboBox = e.Control as ComboBox;
-                if (comboBox != null)
-                {
-                    comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged; // Unsubscribe to avoid multiple bindings
-                    comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;  // Subscribe to handle selection
-                }
-            }
-        }
+       
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -196,8 +185,7 @@ namespace Maintenance_Application
 
         private void FollowReq_Load(object sender, EventArgs e)
         {
-            FollowingReqGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            LoadAllRequests(); // Load requests on form load
+            // Load requests on form load
         }
 
         private void LoadAllRequests()
@@ -238,8 +226,8 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
 
                         if (dataTable == null || dataTable.Rows.Count == 0)
                         {
-                            MessageBox.Show("لا يوجد الان بلاغات على قيد الانتظار"); // Exit if there are no rows
-                            return; // Exit the method if there are no rows
+                            // Exit if there are no rows
+                            // Exit the method if there are no rows
                         }
 
                         FollowingReqGridView.DataSource = dataTable;
@@ -590,13 +578,13 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
 
         private void FollowReq_Load_1(object sender, EventArgs e)
         {
-            FollowingReqGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           
             LoadAllRequests(); // Initial load
             usertxt.Text = _username;
 
             // Initialize the timer
             refreshTimer = new System.Windows.Forms.Timer();
-            refreshTimer.Interval = 10000; // 10 seconds in milliseconds
+            refreshTimer.Interval = 30000; // 10 seconds in milliseconds
             refreshTimer.Tick += RefreshTimer_Tick; // Attach event handler
             refreshTimer.Start(); // Start the timer
 
@@ -607,9 +595,9 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
         }
 
         private DateTime lastActivityTime;
-        private int idleTimeLimit = 10000; // 10 seconds in milliseconds
+        private int idleTimeLimit = 30000; // 30 seconds in milliseconds
 
-        // Event handler that gets called every 10 seconds
+        // Event handler that gets called every 10 second 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
             // Check if the user has been idle for more than 10 seconds
@@ -637,8 +625,11 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
 
 
         private void backButton_Click(object sender, EventArgs e)
-       {
-                this.Hide();
+        {
+           
+                refreshTimer.Stop(); // Stop the timer when the form is closing
+            
+            this.Hide();
                 Home homeform = new Home(_username);
 
                 homeform.ShowDialog();

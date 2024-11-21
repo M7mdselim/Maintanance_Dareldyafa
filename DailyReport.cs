@@ -323,7 +323,7 @@ WHERE StatusID = 4
 
                             if (dataTable == null || dataTable.Rows.Count == 0)
                             {
-                                MessageBox.Show("مفيش عالابيض");
+                                MessageBox.Show("لا يوجد");
                                  // Exit if there are no rows
                             }
 

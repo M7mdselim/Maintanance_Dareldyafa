@@ -74,6 +74,7 @@
             // 
             // Maintenancetypecombo
             // 
+            this.Maintenancetypecombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Maintenancetypecombo.FormattingEnabled = true;
             this.Maintenancetypecombo.Location = new System.Drawing.Point(47, 173);
             this.Maintenancetypecombo.Name = "Maintenancetypecombo";
@@ -93,6 +94,7 @@
             // 
             // Areacombo
             // 
+            this.Areacombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Areacombo.FormattingEnabled = true;
             this.Areacombo.Location = new System.Drawing.Point(47, 231);
             this.Areacombo.Name = "Areacombo";
@@ -112,6 +114,7 @@
             // 
             // Roomcombo
             // 
+            this.Roomcombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Roomcombo.FormattingEnabled = true;
             this.Roomcombo.Location = new System.Drawing.Point(47, 286);
             this.Roomcombo.Name = "Roomcombo";

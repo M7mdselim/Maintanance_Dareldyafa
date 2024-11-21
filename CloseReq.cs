@@ -164,7 +164,7 @@ namespace Maintenance_Application
            DateCompleted ,
            DateReceived as  وقت_استلام_العطل                 -- Add DateClosed field
            FROM vw_RequestDetails 
-    WHERE StatusID IN (2,3)"; // Only fetch records where StatusID is In Progress
+    WHERE StatusID IN (1,2,3)"; // Only fetch records where StatusID is In Progress
 
             try
             {
@@ -213,6 +213,11 @@ namespace Maintenance_Application
                                 {
                                     row.Cells["الحاله"].Style.BackColor = Color.Gray;
                                     row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
+                                }
+                                else if (statusValue == "مفتوح") // Yellow for status 1
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Yellow;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.Black; // Ensure text is readable
                                 }
                                 else if (statusValue == "قيد التشغيل") // Green for status 2
                                 {
@@ -323,7 +328,7 @@ namespace Maintenance_Application
             string updateQuery = @"
             UPDATE Requests
             SET StatusID = @StatusID, DateCompleted = @DateCompleted
-            WHERE RequestID = @RequestID";
+            WHERE RequestID = @RequestID AND StatusID != 5";
 
             using (SqlConnection connection = new SqlConnection(DatabaseConfig.connectionString))
             {
@@ -347,7 +352,8 @@ namespace Maintenance_Application
                     }
                     else
                     {
-                        MessageBox.Show("Update failed. No rows were affected.");
+                        MessageBox.Show("لايمكن تغيير حاله هذا العطل برجاء التواصل مع القسم المختص");
+                        LoadAllRequests();
                     }
                 }
             }
@@ -374,6 +380,8 @@ namespace Maintenance_Application
 
         private void CloseReq_Load(object sender, EventArgs e)
         {
+
+            LoadAllRequests();
            usertxt.Text= _username;
         }
 
@@ -402,7 +410,7 @@ namespace Maintenance_Application
 
             // Define the query to check the current StatusID of the RequestID
             string checkStatusQuery = "SELECT StatusID FROM vw_RequestDetails WHERE RequestID = @RequestID";
-            string updateStatusQuery = "UPDATE vw_RequestDetails SET StatusID = 2 WHERE RequestID = @RequestID";
+            string updateStatusQuery = "UPDATE Requests SET StatusID = 2 WHERE RequestID = @RequestID";
 
             try
             {
@@ -417,15 +425,15 @@ namespace Maintenance_Application
 
                         object result = checkCommand.ExecuteScalar();
 
-                        // If the RequestID is found and status is 4, show an error and return
-                        if (result != null && Convert.ToInt32(result) == 4 || result != null && Convert.ToInt32(result) == 1)
+                        // If the RequestID is found and status is 4 or 1, show an error and return
+                        if (result != null && (Convert.ToInt32(result) == 4 || Convert.ToInt32(result) == 1) || Convert.ToInt32(result) == 5 )
                         {
                             MessageBox.Show("لا يمكن تغير حاله هذا العطل");
                             return;
                         }
                     }
 
-                    // Proceed with updating the status if it is not 4
+                    // Proceed with updating the status if it is not 4 or 1
                     using (SqlCommand updateCommand = new SqlCommand(updateStatusQuery, connection))
                     {
                         updateCommand.Parameters.AddWithValue("@RequestID", requestId);
@@ -449,6 +457,7 @@ namespace Maintenance_Application
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
 
 
     }

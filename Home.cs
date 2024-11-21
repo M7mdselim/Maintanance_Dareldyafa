@@ -113,7 +113,7 @@ namespace Maintenance_Application
         {
 
             int roleID = GetRoleIdForCurrentUser();
-            if (roleID == 1 || roleID == 3)
+            if (roleID == 1 || roleID == 3 || roleID == -1)
             {
                 this.Hide();
             FollowReq followreq = new FollowReq(_username);
@@ -169,7 +169,7 @@ namespace Maintenance_Application
         private void CashierFormbtn_Click(object sender, EventArgs e)
         {
             int roleID = GetRoleIdForCurrentUser();
-            if (roleID == 1 || roleID == 2 || roleID == 3)
+            if (roleID == 1 || roleID == 2 || roleID == 3 || roleID == -1)
             {
 
 
@@ -250,7 +250,7 @@ namespace Maintenance_Application
         {
 
             int roleID = GetRoleIdForCurrentUser();
-            if (roleID == 1)
+            if (roleID == 1 || roleID == -1)
             {
 
                 this.Hide();
@@ -272,7 +272,7 @@ namespace Maintenance_Application
         private void Monthlyreportbtn_Click_1(object sender, EventArgs e)
         {
             int roleID = GetRoleIdForCurrentUser();
-            if (roleID == 1)
+            if (roleID == 1 || roleID == -1 )
             {
                 this.Hide();
             MonthlyReport MP = new MonthlyReport(_username);
@@ -291,7 +291,7 @@ namespace Maintenance_Application
         {
 
             int roleID = GetRoleIdForCurrentUser();
-            if (roleID == 1 || roleID == 3)
+            if (roleID == 1 || roleID == 3 || roleID == -1)
             {
                 this.Hide();
             Extrareq EP = new Extrareq(_username);
