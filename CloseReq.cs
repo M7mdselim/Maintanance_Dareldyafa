@@ -27,6 +27,7 @@ namespace Maintenance_Application
 
             _username = username;
             InitializeComponent();
+            FollowingReqGridView.CellContentDoubleClick += FollowingReqGridView_CellContentDoubleClick;
             FollowingReqGridView.DataError += FollowingReqGridView_DataError;
             FollowingReqGridView.EditingControlShowing += FollowingReqGridView_EditingControlShowing;
             _initialFormWidth = this.Width;
@@ -164,7 +165,7 @@ namespace Maintenance_Application
            DateCompleted ,
            DateReceived as  وقت_استلام_العطل                 -- Add DateClosed field
            FROM vw_RequestDetails 
-    WHERE StatusID IN (1,2,3)"; // Only fetch records where StatusID is In Progress
+    WHERE StatusID IN (1,2,3,6)"; // Only fetch records where StatusID is In Progress
 
             try
             {
@@ -225,8 +226,13 @@ namespace Maintenance_Application
                                     row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
                                 }
 
+                                else if (statusValue == "ملاحظات") // Purple for status 6
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Purple;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
+                                }
 
-                              
+
 
                                 else
                                 {
@@ -246,6 +252,71 @@ namespace Maintenance_Application
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+        }
+
+
+        private async void FollowingReqGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the click was on a valid row (not the header)
+            if (e.RowIndex >= 0)
+            {
+                // Get the clicked row
+                var row = FollowingReqGridView.Rows[e.RowIndex];
+
+                // Assuming you have an 'ID' column to fetch the Notes and a 'Status' column
+                int id = Convert.ToInt32(row.Cells["RequestID"].Value); // Adjust the column name as necessary
+                string status = row.Cells["الحاله"].Value.ToString(); // Adjust the column name as necessary
+
+                // Check if the status is either 5 or "طلب شراء"
+                if (status == "5" || status == "طلب شراء" || status == "6" || status == "ملاحظات")
+                {
+                    // Fetch Notes and DateSubmitted from the ExtraReq table
+                    var (notes, dateSubmitted) = await GetNotesAndDateFromExtrareqAsync(id);
+                    if (status == "5" || status == "طلب شراء")
+                    {
+                        // Show the Notes and Date in a MessageBox
+                        MessageBox.Show($"مطلوب للشراء : {notes}\nتاريخ الطلب: {dateSubmitted}", "مطلوب للشراء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+
+
+                        MessageBox.Show($"ملاحظه : {notes}\nتاريخ الطلب: {dateSubmitted}", "ملاحظه", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+            }
+
+        }
+        private async Task<(string Notes, string DateSubmitted)> GetNotesAndDateFromExtrareqAsync(int id)
+        {
+            string notes = string.Empty;
+            string dateSubmitted = string.Empty;
+
+            using (var connection = new SqlConnection(DatabaseConfig.connectionString))
+            {
+                await connection.OpenAsync();
+                string query = @"
+            SELECT Notes, DateSubmitted 
+            FROM ExtraRequests 
+            WHERE RequestID = @ID
+            ORDER BY DateSubmitted DESC"; // Orders by DateSubmitted in descending order
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", id);
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            notes = reader["Notes"]?.ToString() ?? "No notes available.";
+                            dateSubmitted = reader["DateSubmitted"]?.ToString() ?? "No date available.";
+                        }
+                    }
+                }
+            }
+
+            return (notes, dateSubmitted);
         }
 
 
@@ -278,21 +349,94 @@ namespace Maintenance_Application
         }
 
 
+
+
+        private int GetRoleIdForCurrentUser()
+        {
+            int roleID = 0;
+            string username = _username; // Assuming this is how you store the logged-in username
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.connectionString))
+            {
+                string query = @"
+               SELECT RoleID , Fullname
+            FROM Users
+            WHERE Fullname = @Username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out roleID))
+                        {
+                            return roleID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+
+            return roleID;
+        }
+
+
         private void Updatebtn_Click(object sender, EventArgs e)
         {
-            if (FollowingReqGridView.CurrentRow != null)
+
+            int roleID = GetRoleIdForCurrentUser();
+
+            if (FollowingReqGridView.CurrentRow != null &&  roleID == 1)
             {
+
                 DataGridViewRow selectedRow = FollowingReqGridView.CurrentRow;
                 int requestId = Convert.ToInt32(selectedRow.Cells["RequestID"].Value);
 
                 // Only update the status from 2 to 3
                 UpdateRequestStatusInDatabase(requestId);
+            
+
+
+
+        }
+           else if (FollowingReqGridView.CurrentRow != null )
+            {
+                DataGridViewRow selectedRow = FollowingReqGridView.CurrentRow;
+
+                // Get the RequestID and اسم_المبلغ values from the selected row
+                int requestId = Convert.ToInt32(selectedRow.Cells["RequestID"].Value);
+                string reportedName = selectedRow.Cells["اسم_المبلغ"].Value?.ToString();
+
+                // Check if usertxt.Text matches اسم_المبلغ
+                if (string.Equals(usertxt.Text, reportedName, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Only update the status if the condition is met
+                    UpdateRequestStatusInDatabase(requestId);
+                }
+                else
+                {
+                    MessageBox.Show($"The user name does not match the reported name for Request ID {requestId}.",
+                                    "Mismatch Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                MessageBox.Show("Please select a request to update.");
+                MessageBox.Show("Please select a request to update.",
+                                "Selection Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
         }
+
         private async Task<DateTime> GetServerDateTimeAsync(SqlConnection connection)
         {
             string query = "SELECT GETDATE()";
@@ -327,7 +471,7 @@ namespace Maintenance_Application
             // Query to update the request status and set the DateCompleted
             string updateQuery = @"
             UPDATE Requests
-            SET StatusID = @StatusID, DateCompleted = @DateCompleted
+            SET StatusID = @StatusID, DateCompleted = @DateCompleted , Closername=@Closername
             WHERE RequestID = @RequestID AND StatusID != 5";
 
             using (SqlConnection connection = new SqlConnection(DatabaseConfig.connectionString))
@@ -336,6 +480,7 @@ namespace Maintenance_Application
 
                 // Get server date and time
                 DateTime serverDateTime = await GetServerDateTimeAsync(connection);
+                
 
                 // Execute the update query
                 using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
@@ -343,6 +488,7 @@ namespace Maintenance_Application
                     updateCommand.Parameters.AddWithValue("@StatusID", 4);  // Change status to 4
                     updateCommand.Parameters.AddWithValue("@DateCompleted", serverDateTime); // Set current server date and time
                     updateCommand.Parameters.AddWithValue("@RequestID", requestId);
+                    updateCommand.Parameters.AddWithValue("@Closername",usertxt.Text);
 
                     int rowsAffected = await updateCommand.ExecuteNonQueryAsync();
                     if (rowsAffected > 0)
@@ -378,15 +524,63 @@ namespace Maintenance_Application
             LoadAllRequests();
         }
 
+
+
+
+
+        private System.Windows.Forms.Timer refreshTimer;
         private void CloseReq_Load(object sender, EventArgs e)
         {
 
-            LoadAllRequests();
-           usertxt.Text= _username;
+            LoadAllRequests(); // Initial load
+            usertxt.Text = _username;
+
+            // Initialize the timer
+            refreshTimer = new System.Windows.Forms.Timer();
+            refreshTimer.Interval = 20000; // 10 seconds in milliseconds
+            refreshTimer.Tick += RefreshTimer_Tick; // Attach event handler
+            refreshTimer.Start(); // Start the timer
+
+            // Hook up event handlers to detect activity
+            this.MouseMove += new MouseEventHandler(OnUserActivity);
+            this.KeyDown += new KeyEventHandler(OnUserActivity);
+            FollowingReqGridView.MouseMove += new MouseEventHandler(OnUserActivity);
         }
+
+        private DateTime lastActivityTime;
+        private int idleTimeLimit = 20000; // 30 seconds in milliseconds
+
+        // Event handler that gets called every 10 second 
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
+            // Check if the user has been idle for more than 10 seconds
+            if ((DateTime.Now - lastActivityTime).TotalMilliseconds >= idleTimeLimit)
+            {
+                LoadAllRequests(); // Refresh the request list only if idle
+            }
+        }
+
+        // Method to track user activity and reset lastActivityTime
+        private void OnUserActivity(object sender, EventArgs e)
+        {
+            lastActivityTime = DateTime.Now; // Update the time of the last activity
+        }
+
+
+        // Optional: Stop the timer when the form is closing
+        private void FollowReq_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (refreshTimer != null)
+            {
+                refreshTimer.Stop(); // Stop the timer when the form is closing
+            }
+        }
+
 
         private void backButton_Click(object sender, EventArgs e)
         {
+
+            refreshTimer.Stop();
             this.Hide();
             Home homeform = new Home(_username);
 

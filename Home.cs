@@ -136,7 +136,7 @@ namespace Maintenance_Application
             if (roleID == 1 || roleID == 3)
             {
                 this.Hide();
-            CompleteReq completereq = new CompleteReq(_username);
+            Comments completereq = new Comments(_username);
             completereq.ShowDialog();
             this.Close();
             }
@@ -243,7 +243,10 @@ namespace Maintenance_Application
 
         private void signupbtn_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            SignUp SignupForm = new SignUp(_username);
+            SignupForm.ShowDialog();
+            this.Close();
         }
 
         private void updateform_Click(object sender, EventArgs e)
@@ -267,6 +270,10 @@ namespace Maintenance_Application
 
         private void changepassbtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Changepass changepass = new Changepass(_username);
+            changepass.ShowDialog();
+            this.Close();
         }
 
         private void Monthlyreportbtn_Click_1(object sender, EventArgs e)
@@ -297,6 +304,23 @@ namespace Maintenance_Application
             Extrareq EP = new Extrareq(_username);
             EP.ShowDialog();
             this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Not Allowed to Open this Form :)");
+            }
+        }
+
+        private void Commentsbtn_Click(object sender, EventArgs e)
+        {
+            int roleID = GetRoleIdForCurrentUser();
+            if (roleID == 1 || roleID == 3 || roleID == -1)
+            {
+                this.Hide();
+                Comments EP = new Comments(_username);
+                EP.ShowDialog();
+                this.Close();
 
             }
             else

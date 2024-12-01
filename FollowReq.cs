@@ -1,17 +1,34 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using SeleniumKeys = OpenQA.Selenium.Keys;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using DocumentFormat.OpenXml.Bibliography;
+using System.Threading;
+using System.IO; // Import this for Directory and File classes
+using OpenQA.Selenium.Remote;
+using static OpenQA.Selenium.BiDi.Modules.Script.RealmInfo;
+
 
 
 namespace Maintenance_Application
 {
+
+
+
     public partial class FollowReq : Form
     {
-        
+        private IWebDriver driver = null;
         private string _username;
 
 
@@ -25,8 +42,8 @@ namespace Maintenance_Application
             _username = username;
             InitializeComponent();
             FollowingReqGridView.DataError += FollowingReqGridView_DataError;
-            
-          
+
+
             FollowingReqGridView.CellContentDoubleClick += FollowingReqGridView_CellContentDoubleClick;
 
 
@@ -46,7 +63,18 @@ namespace Maintenance_Application
 
             // Set event handler for form resize
             this.Resize += Home_Resize;
+
+
+
+
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            //IWebElement searchBox = wait.Until(ExpectedConditions.ElementIsVisible(
+            //    By.XPath("//div[@contenteditable='true'][@data-tab='3']")));
+
+
         }
+
+
 
 
         private void Home_Resize(object sender, EventArgs e)
@@ -103,16 +131,24 @@ namespace Maintenance_Application
                 string status = row.Cells["الحاله"].Value.ToString(); // Adjust the column name as necessary
 
                 // Check if the status is either 5 or "طلب شراء"
-                if (status == "5" || status == "طلب شراء")
+                if (status == "5" || status == "طلب شراء" || status == "6" || status == "ملاحظات")
                 {
                     // Fetch Notes and DateSubmitted from the ExtraReq table
                     var (notes, dateSubmitted) = await GetNotesAndDateFromExtrareqAsync(id);
+                    if (status == "5" || status == "طلب شراء")
+                    {
+                        // Show the Notes and Date in a MessageBox
+                        MessageBox.Show($"مطلوب للشراء : {notes}\nتاريخ الطلب: {dateSubmitted}", "مطلوب للشراء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else {
 
-                    // Show the Notes and Date in a MessageBox
-                    MessageBox.Show($"مطلوب للشراء : {notes}\nتاريخ الطلب: {dateSubmitted}", "مطلوب للشراء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MessageBox.Show($"ملاحظه : {notes}\nتاريخ الطلب: {dateSubmitted}", "ملاحظه", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
                 }
             }
-           
+
         }
 
         private async Task<(string Notes, string DateSubmitted)> GetNotesAndDateFromExtrareqAsync(int id)
@@ -123,7 +159,11 @@ namespace Maintenance_Application
             using (var connection = new SqlConnection(DatabaseConfig.connectionString))
             {
                 await connection.OpenAsync();
-                string query = "SELECT Notes, DateSubmitted FROM ExtraRequests WHERE RequestID = @ID"; // Adjust the query as needed
+                string query = @"
+            SELECT Notes, DateSubmitted 
+            FROM ExtraRequests 
+            WHERE RequestID = @ID
+            ORDER BY DateSubmitted DESC"; // Orders by DateSubmitted in descending order
 
                 using (var command = new SqlCommand(query, connection))
                 {
@@ -148,8 +188,6 @@ namespace Maintenance_Application
 
 
 
-       
-
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = sender as ComboBox;
@@ -166,7 +204,7 @@ namespace Maintenance_Application
                     MessageBox.Show("Invalid UserID format. Please try again.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-           
+
         }
 
 
@@ -191,7 +229,7 @@ namespace Maintenance_Application
         private void LoadAllRequests()
         {
             // Force revalidation and refresh of the DataGridView
-           
+
 
 
             string query = @"
@@ -213,7 +251,7 @@ SELECT RequestID,
        DateSubmitted,      -- Add DateSubmitted field
        DateCompleted         -- Add DateClosed field
        FROM vw_RequestDetails 
-WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
+WHERE StatusID IN (1,2,5,6)"; // Only fetch records where StatusID is Opened
 
             try
             {
@@ -256,26 +294,32 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                                 string statusValue = Convert.ToString(row.Cells["الحاله"].Value);
 
                                 if (statusValue == "مفتوح") // Yellow for status 1
-                                    {
-                                        row.Cells["الحاله"].Style.BackColor = Color.Yellow;
-                                        row.Cells["الحاله"].Style.ForeColor = Color.Black; // Ensure text is readable
-                                    }
-                                    else if (statusValue == "قيد التشغيل") // Green for status 2
-                                    {
-                                        row.Cells["الحاله"].Style.BackColor = Color.Green;
-                                        row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
-                                    }
-                                    else if (statusValue == "طلب شراء") // Red for status 5
-                                    {
-                                        row.Cells["الحاله"].Style.BackColor = Color.Red;
-                                        row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
-                                    }
-                                    else
-                                    {
-                                        // Optional: Log or handle the case where 'الحاله' cell is null
-                                        continue;
-                                    }
-                                
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Yellow;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.Black; // Ensure text is readable
+                                }
+                                else if (statusValue == "قيد التشغيل") // Green for status 2
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Green;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
+                                }
+                                else if (statusValue == "طلب شراء") // Red for status 5
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Red;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
+                                }
+
+                                else if (statusValue == "ملاحظات") // Red for status 5
+                                {
+                                    row.Cells["الحاله"].Style.BackColor = Color.Purple;
+                                    row.Cells["الحاله"].Style.ForeColor = Color.White; // Ensure text is readable
+                                }
+                                else
+                                {
+                                    // Optional: Log or handle the case where 'الحاله' cell is null
+                                    continue;
+                                }
+
                             }
                             if (row.Cells["القائم_على_العطل"].Value == DBNull.Value)
                             {
@@ -293,7 +337,7 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                                         DisplayMember = "FullName",  // Display the worker's full name
                                         ValueMember = "UserID"       // Store the worker's UserID
                                     };
-                                    
+
                                     row.Cells["القائم_على_العطل"] = comboBoxCell;
 
                                     comboBoxCell.Style.BackColor = Color.White; // Set background to white
@@ -306,7 +350,7 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                             }
                         }
 
-                      
+
                     }
                 }
             }
@@ -317,7 +361,7 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
         }
 
 
-     
+
 
 
 
@@ -370,6 +414,114 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                 }
             }
         }
+
+
+        //private void SendMessageToWhatsAppGroup(string groupNumber, string message)
+        //{
+        //    const string accountSid = "US3d0c07f820c392b285b07c7fe5dbef9c"; // Replace with your Twilio Account SID
+        //    const string authToken = "50477cfaa16cad6ff789f6ce02469576";   // Replace with your Twilio Auth Token
+
+        //    TwilioClient.Init(accountSid, authToken);
+
+        //    var messageOptions = new CreateMessageOptions(new Twilio.Types.PhoneNumber($"whatsapp:{groupNumber}"))
+        //    {
+        //        From = new Twilio.Types.PhoneNumber("whatsapp:+01155003537"), // Replace with your Twilio WhatsApp number
+        //        Body = message
+        //    };
+
+        //    var msg = MessageResource.Create(messageOptions);
+        //    MessageBox.Show($"WhatsApp message sent: {msg.Sid}");
+        //}
+
+
+
+
+        // Assuming driver is a class-level variable
+        // Initialize driver as a class-level variable
+
+        // Assuming driver is a class-level variable
+
+
+        public void SendMessageToWhatsAppGroup(string groupName, string message)
+        {
+            string chromeProfilePath = @"C:\Temp\SeleniumChromeProfile";
+
+            try
+            {
+                // If the driver is null (not open), create a new driver instance
+                if (driver == null)
+                {
+                    // Ensure the profile directory exists
+                    if (!Directory.Exists(chromeProfilePath))
+                    {
+                        Directory.CreateDirectory(chromeProfilePath);
+                    }
+
+                    // Delete the DevToolsActivePort file if it exists
+                    string devToolsPortFile = Path.Combine(chromeProfilePath, "DevToolsActivePort");
+                    if (File.Exists(devToolsPortFile))
+                    {
+                        File.Delete(devToolsPortFile);
+                    }
+
+                    // Configure ChromeOptions
+                    var options = new ChromeOptions();
+                    options.AddArgument($"--user-data-dir={chromeProfilePath}"); // Use a unique profile
+                    options.AddArgument("--profile-directory=Default");
+                    options.AddArgument("--start-maximized");
+                    options.AddArgument("--disable-infobars");
+                    options.AddArgument("--disable-popup-blocking");
+                    options.AddArgument("--no-sandbox");
+                    options.AddArgument("--remote-debugging-port=9222");
+
+                    // Initialize the ChromeDriver
+                    driver = new ChromeDriver(options);
+
+                    // Navigate to WhatsApp Web and wait for QR code scan only if not already there
+                    driver.Navigate().GoToUrl("https://web.whatsapp.com/");
+                    Thread.Sleep(10000); // Wait for WhatsApp Web to load and QR code to scan
+                }
+                else if (driver.Url != "https://web.whatsapp.com/")
+                {
+                    // If driver is already open but not on WhatsApp Web, navigate to the page
+                    driver.Navigate().GoToUrl("https://web.whatsapp.com/");
+                }
+
+                // Search for the group by name
+                var searchBox = driver.FindElement(By.XPath("//div[@contenteditable='true'][@data-tab='3']"));
+                searchBox.SendKeys(groupName);
+                searchBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+                // Find the message input box and send the message
+                var messageBox = driver.FindElement(By.XPath("//div[@contenteditable='true'][@data-tab='10']"));
+                messageBox.SendKeys(message);
+                messageBox.SendKeys(OpenQA.Selenium.Keys.Enter);
+                Thread.Sleep(3000);
+
+                // Confirm success
+                Console.WriteLine("Message sent successfully to the group.");
+            }
+            catch (NoSuchElementException ex)
+            {
+                MessageBox.Show($"Element not found: {ex.Message}");
+            }
+            catch (WebDriverException ex)
+            {
+                MessageBox.Show($"WebDriver error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}");
+            }
+        }
+
+
+        public void QuitDriverOnExit()
+        {
+            // Quit driver when the program is exiting or when the user requests it
+            driver?.Quit();
+        }
+
 
 
 
@@ -452,6 +604,42 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                         if (currentStatus == 1)
                         {
                             newStatus = 2; // Update to status 2
+
+
+
+
+
+
+
+
+
+
+                             workerId = Convert.ToInt32(selectedRow.Cells["القائم_على_العطل"].Value);
+
+                            // Fetch the FullName from the database
+                            string workerfullname = GetWorkerFullNameById(workerId);
+
+                            // Construct the message
+                            string areaName = Convert.ToString(selectedRow.Cells["المكان"].Value); // Area Name
+                            string roomName = Convert.ToString(selectedRow.Cells["رقم_الغرفه"].Value);
+                            string notes = Convert.ToString(selectedRow.Cells["نوتس"].Value); // Notes
+                            string maintenanceType = Convert.ToString(selectedRow.Cells["نوع_العطل"].Value); // Maintenance Type
+                            string status = Convert.ToString(selectedRow.Cells["الحاله"].Value); // Status
+
+                            string groupName = "أعطال قسم الصيانه والتطوير"; // Replace with the WhatsApp group name
+
+                            // Construct the message
+                            string message = $"    تم إبلاغ بعطل إلى المكان   {areaName}, " +
+                                             $"   وقد تم تعيين {workerfullname}, " +
+                                             $"   بخصوص {maintenanceType}, " +
+                                             $"   إلى غرفة رقم {roomName}." +
+                                             $"   الملاحظات: {notes}";
+
+                            // Send the message to the WhatsApp group
+                            SendMessageToWhatsAppGroup(groupName, message);
+                            // Refresh the DataGridView after the update
+
+
                         }
                         else if (currentStatus == 2)
                         {
@@ -462,6 +650,14 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                             newStatus = 2; // Update to status 2
 
                         }
+
+
+                        else if (currentStatus == 6)
+                        {
+                            newStatus = 2; // Update to status 2
+
+                        }
+
                         else
                         {
                             MessageBox.Show("Invalid status for updating.");
@@ -482,6 +678,35 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                                 if (newStatus == 2)
                                 {
                                     MessageBox.Show("الطلب قيد التشغيل الان !");
+
+
+
+
+
+                                    workerFullName = Convert.ToString(selectedRow.Cells["القائم_على_العطل"].Value);
+
+                                    // Fetch the FullName from the database
+                                    
+
+                                    // Construct the message
+                                    string areaName = Convert.ToString(selectedRow.Cells["المكان"].Value); // Area Name
+                                    string roomName = Convert.ToString(selectedRow.Cells["رقم_الغرفه"].Value);
+                                    string notes = Convert.ToString(selectedRow.Cells["نوتس"].Value); // Notes
+                                    string maintenanceType = Convert.ToString(selectedRow.Cells["نوع_العطل"].Value); // Maintenance Type
+                                    string status = Convert.ToString(selectedRow.Cells["الحاله"].Value); // Status
+
+                                    string groupName = "أعطال قسم الصيانه والتطوير"; // Replace with the WhatsApp group name
+
+                                    // Construct the message
+                                    string message = $"    تم إبلاغ بعطل إلى المكان   {areaName}, " +
+                                                     $"   وقد تم تعيين {workerFullName}, " +
+                                                     $"   بخصوص {maintenanceType}, " +
+                                                     $"   إلى غرفة رقم {roomName}." +
+                                                     $"   الملاحظات: {notes}";
+
+                                    // Send the message to the WhatsApp group
+                                    SendMessageToWhatsAppGroup(groupName, message);
+
                                 }
                                 else
                                 {
@@ -503,6 +728,25 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
             }
         }
 
+        private string GetWorkerFullNameById(int workerId)
+        {
+            string query = "SELECT FullName FROM Users WHERE UserID = @WorkerId";
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Add the WorkerId parameter
+                    command.Parameters.AddWithValue("@WorkerId", workerId);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar(); // Execute the query to get a single value
+                    connection.Close();
+
+                    // Return the FullName if found, or a default message if not
+                    return result != null ? result.ToString() : "Unknown Worker";
+                }
+            }
+        }
 
         private void UpdateRequestInDatabase(int workerUserID, int requestId)
         {
@@ -542,7 +786,34 @@ WHERE StatusID IN (1,2,5)"; // Only fetch records where StatusID is Opened
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("الطلب  قيد التشغيل");
-                        LoadAllRequests();  // Refresh the DataGridView after the update
+
+
+                        DataGridViewRow selectedRow = FollowingReqGridView.CurrentRow;
+                        int workerId = Convert.ToInt32(selectedRow.Cells["القائم_على_العطل"].Value);
+
+                        // Fetch the FullName from the database
+                        string workerfullname = GetWorkerFullNameById(workerId);
+
+                        // Construct the message
+                        string areaName = Convert.ToString(selectedRow.Cells["المكان"].Value); // Area Name
+                        string roomName = Convert.ToString(selectedRow.Cells["رقم_الغرفه"].Value);
+                        string notes = Convert.ToString(selectedRow.Cells["نوتس"].Value); // Notes
+                        string maintenanceType = Convert.ToString(selectedRow.Cells["نوع_العطل"].Value); // Maintenance Type
+                        string status = Convert.ToString(selectedRow.Cells["الحاله"].Value); // Status
+
+                        string groupName = "أعطال قسم الصيانه والتطوير"; // Replace with the WhatsApp group name
+
+                        // Construct the message
+                        string message = $"    تم إبلاغ بعطل إلى المكان   {areaName}, " +
+                                         $"   وقد تم تعيين {workerfullname}, " +
+                                         $"   بخصوص {maintenanceType}, " +
+                                         $"   إلى غرفة رقم {roomName}." +
+                                         $"   الملاحظات: {notes}";
+
+                        // Send the message to the WhatsApp group
+                        SendMessageToWhatsAppGroup(groupName, message);
+                        LoadAllRequests();
+                        // Refresh the DataGridView after the update
                     }
                     else
                     {

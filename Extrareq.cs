@@ -126,7 +126,7 @@ namespace Maintenance_Application
                         }
 
                         // Proceed only if StatusID is 1 or 2
-                        if (currentStatusID == 1 || currentStatusID == 2)
+                        if (currentStatusID == 1 || currentStatusID == 2 || currentStatusID == 5)
                         {
                             // Insert into ExtraRequests table
                             string insertQuery = "INSERT INTO ExtraRequests (RequestID, RequestedName, Notes, DateSubmitted) " +
@@ -159,7 +159,7 @@ namespace Maintenance_Application
                         }
                         else
                         {
-                            MessageBox.Show("الطاب اكتمل او مغلق لا يمكن طلب شراء لهذا البلاغ");
+                            MessageBox.Show("الطلب اكتمل او مغلق لا يمكن طلب شراء لهذا البلاغ");
                             transaction.Rollback();
                         }
                     }

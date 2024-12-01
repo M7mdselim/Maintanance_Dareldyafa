@@ -95,12 +95,13 @@
             this.Headerlabel.AutoSize = true;
             this.Headerlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Headerlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Headerlabel.Location = new System.Drawing.Point(449, 33);
+            this.Headerlabel.Location = new System.Drawing.Point(442, 39);
             this.Headerlabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Headerlabel.Name = "Headerlabel";
             this.Headerlabel.Size = new System.Drawing.Size(362, 33);
             this.Headerlabel.TabIndex = 0;
             this.Headerlabel.Text = "برنامج الصيانه لنادي دار الضيافه";
+            this.Headerlabel.Click += new System.EventHandler(this.Headerlabel_Click);
             // 
             // captionlabel
             // 

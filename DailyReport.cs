@@ -299,7 +299,8 @@ SELECT RequestID,
        Description AS نوتس,
        DateSubmitted,      -- Add DateSubmitted field
        DateCompleted , 
-       DateReceived as  وقت_استلام_العطل         
+       DateReceived as  وقت_استلام_العطل ,
+Closername as مغلق_البلاغ
                                           --  Add DateClosed field
 FROM vw_RequestDetails 
 WHERE StatusID = 4  

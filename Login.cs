@@ -224,5 +224,10 @@ namespace Maintenance_Application
         {
 
         }
+
+        private void Headerlabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
