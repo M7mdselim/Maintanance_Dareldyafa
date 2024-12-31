@@ -7,83 +7,107 @@
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\changepass.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\followreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:followreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\followreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:followreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\monthlyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:monthlyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\monthlyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:monthlyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\dailyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:dailyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\dailyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:dailyreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:closereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\monthlyreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:monthlyreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\changepass.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\dailyreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:dailyreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Maintenance Application||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\comments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:extrareq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:changepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\comments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:comments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\extrareq.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|D:\\Github\\Maintanance_Dareldyafa\\extrareq.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|solutionrelative:extrareq.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Maintenance Application||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC2F527E-44B6-4C25-8A95-5F9E833EC612}|Maintenance Application.csproj|d:\\github\\maintanance_dareldyafa\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
@@ -96,7 +120,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -108,208 +132,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChangePass.Designer.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.Designer.cs",
-              "RelativeDocumentMoniker": "ChangePass.Designer.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.Designer.cs",
-              "RelativeToolTip": "ChangePass.Designer.cs",
-              "ViewState": "AgIAAAoBAAAAAAAAAAAIwBsBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:35:14.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChangePass.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
-              "RelativeDocumentMoniker": "ChangePass.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs [Design]",
-              "RelativeToolTip": "ChangePass.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:35:07.568Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SignUp.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
-              "RelativeDocumentMoniker": "SignUp.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
-              "RelativeToolTip": "SignUp.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAWwOIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:20:50.448Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SignUp.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
-              "RelativeDocumentMoniker": "SignUp.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs [Design]",
-              "RelativeToolTip": "SignUp.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:20:15.895Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FollowReq.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
-              "RelativeDocumentMoniker": "FollowReq.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
-              "RelativeToolTip": "FollowReq.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAWwLcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T16:40:16.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Extrareq.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
-              "RelativeDocumentMoniker": "Extrareq.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
-              "RelativeToolTip": "Extrareq.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAcwL4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T13:01:00.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Home.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs",
-              "RelativeDocumentMoniker": "Home.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs [Design]",
-              "RelativeToolTip": "Home.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T11:08:26.58Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Home.cs",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs",
               "RelativeDocumentMoniker": "Home.cs",
               "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs",
               "RelativeToolTip": "Home.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAtwBMBAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAHwAAAAAAAAAAADgv3cAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-26T11:08:28.234Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DatabaseConfig.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\DatabaseConfig.cs",
-              "RelativeDocumentMoniker": "DatabaseConfig.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\DatabaseConfig.cs",
-              "RelativeToolTip": "DatabaseConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T10:56:37.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChangePass.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
-              "RelativeDocumentMoniker": "ChangePass.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
-              "RelativeToolTip": "ChangePass.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAtwDQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:35:34.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SignUp.Designer.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.Designer.cs",
-              "RelativeDocumentMoniker": "SignUp.Designer.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.Designer.cs",
-              "RelativeToolTip": "SignUp.Designer.cs",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAswAYBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:20:21.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Login.cs",
-              "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Login.cs [Design]",
-              "RelativeToolTip": "Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:22:21.975Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Extrareq.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
-              "RelativeDocumentMoniker": "Extrareq.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs [Design]",
-              "RelativeToolTip": "Extrareq.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T12:59:13.489Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Maintenance Application",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Maintenance Application.csproj",
-              "RelativeDocumentMoniker": "Maintenance Application.csproj",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Maintenance Application.csproj",
-              "RelativeToolTip": "Maintenance Application.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-28T13:42:45.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CloseReq.cs",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\CloseReq.cs",
-              "RelativeDocumentMoniker": "CloseReq.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\CloseReq.cs",
-              "RelativeToolTip": "CloseReq.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB0AAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:01:00.41Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FollowReq.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
-              "RelativeDocumentMoniker": "FollowReq.cs",
-              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs [Design]",
-              "RelativeToolTip": "FollowReq.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T16:39:58.339Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "CloseReq.cs [Design]",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\CloseReq.cs",
               "RelativeDocumentMoniker": "CloseReq.cs",
@@ -321,19 +157,274 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CloseReq.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\CloseReq.cs",
+              "RelativeDocumentMoniker": "CloseReq.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\CloseReq.cs",
+              "RelativeToolTip": "CloseReq.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAKgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:01:00.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MonthlyReport.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.cs",
+              "RelativeDocumentMoniker": "MonthlyReport.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.cs [Design]",
+              "RelativeToolTip": "MonthlyReport.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T12:31:35.429Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MonthlyReport.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.cs",
+              "RelativeDocumentMoniker": "MonthlyReport.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.cs",
+              "RelativeToolTip": "MonthlyReport.cs",
+              "ViewState": "AgIAAJQBAAAAAAAAAAAmwHUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T12:31:36.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FollowReq.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
+              "RelativeDocumentMoniker": "FollowReq.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs [Design]",
+              "RelativeToolTip": "FollowReq.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T16:39:58.339Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FollowReq.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
+              "RelativeDocumentMoniker": "FollowReq.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\FollowReq.cs",
+              "RelativeToolTip": "FollowReq.cs",
+              "ViewState": "AgIAAHgCAAAAAAAAAAAcwJgCAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T16:40:16.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseConfig.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\DatabaseConfig.cs",
+              "RelativeDocumentMoniker": "DatabaseConfig.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\DatabaseConfig.cs",
+              "RelativeToolTip": "DatabaseConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T10:56:37.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DailyReport.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.cs",
+              "RelativeDocumentMoniker": "DailyReport.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.cs [Design]",
+              "RelativeToolTip": "DailyReport.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T14:01:19.151Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DailyReport.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.cs",
+              "RelativeDocumentMoniker": "DailyReport.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.cs",
+              "RelativeToolTip": "DailyReport.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAwwC4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T14:01:29.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SignUp.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
+              "RelativeDocumentMoniker": "SignUp.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs [Design]",
+              "RelativeToolTip": "SignUp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:20:15.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SignUp.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
+              "RelativeDocumentMoniker": "SignUp.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.cs",
+              "RelativeToolTip": "SignUp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:20:50.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ChangePass.Designer.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.Designer.cs",
+              "RelativeDocumentMoniker": "ChangePass.Designer.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.Designer.cs",
+              "RelativeToolTip": "ChangePass.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:35:14.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MonthlyReport.Designer.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.Designer.cs",
+              "RelativeDocumentMoniker": "MonthlyReport.Designer.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\MonthlyReport.Designer.cs",
+              "RelativeToolTip": "MonthlyReport.Designer.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAcwHkAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T18:42:08.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Maintenance Application",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Maintenance Application.csproj",
+              "RelativeDocumentMoniker": "Maintenance Application.csproj",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Maintenance Application.csproj",
+              "RelativeToolTip": "Maintenance Application.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-28T13:42:45.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DailyReport.Designer.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.Designer.cs",
+              "RelativeDocumentMoniker": "DailyReport.Designer.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\DailyReport.Designer.cs",
+              "RelativeToolTip": "DailyReport.Designer.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAcwIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T14:12:44.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Home.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs",
+              "RelativeDocumentMoniker": "Home.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Home.cs [Design]",
+              "RelativeToolTip": "Home.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T11:08:26.58Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ChangePass.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
+              "RelativeDocumentMoniker": "ChangePass.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs [Design]",
+              "RelativeToolTip": "ChangePass.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:35:07.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Extrareq.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
+              "RelativeDocumentMoniker": "Extrareq.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs [Design]",
+              "RelativeToolTip": "Extrareq.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T12:59:13.489Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "Extrareq.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
+              "RelativeDocumentMoniker": "Extrareq.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.cs",
+              "RelativeToolTip": "Extrareq.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:01:00.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ChangePass.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
+              "RelativeDocumentMoniker": "ChangePass.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\ChangePass.cs",
+              "RelativeToolTip": "ChangePass.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAtwDQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:35:34.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SignUp.Designer.cs",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.Designer.cs",
+              "RelativeDocumentMoniker": "SignUp.Designer.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\SignUp.Designer.cs",
+              "RelativeToolTip": "SignUp.Designer.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAswAYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:20:21.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Login.cs",
+              "RelativeDocumentMoniker": "Login.cs",
+              "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Login.cs [Design]",
+              "RelativeToolTip": "Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:22:21.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "Comments.cs [Design]",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Comments.cs",
               "RelativeDocumentMoniker": "Comments.cs",
               "ToolTip": "D:\\Github\\Maintanance_Dareldyafa\\Comments.cs [Design]",
               "RelativeToolTip": "Comments.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:46:21.993Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-01T14:46:21.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "Comments.cs",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Comments.cs",
               "RelativeDocumentMoniker": "Comments.cs",
@@ -341,12 +432,11 @@
               "RelativeToolTip": "Comments.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAIA0wJ0AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:47:43.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T14:47:43.388Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "Extrareq.Designer.cs",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Extrareq.Designer.cs",
               "RelativeDocumentMoniker": "Extrareq.Designer.cs",
@@ -354,12 +444,11 @@
               "RelativeToolTip": "Extrareq.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:46:46.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T14:46:46.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "Comments.Designer.cs",
               "DocumentMoniker": "D:\\Github\\Maintanance_Dareldyafa\\Comments.Designer.cs",
               "RelativeDocumentMoniker": "Comments.Designer.cs",
@@ -367,8 +456,7 @@
               "RelativeToolTip": "Comments.Designer.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:47:14.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T14:47:14.979Z"
             }
           ]
         }

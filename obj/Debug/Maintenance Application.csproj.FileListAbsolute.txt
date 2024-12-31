@@ -94,3 +94,7 @@ D:\Github\Maintanance_Dareldyafa\bin\Debug\WebDriver.xml
 D:\Github\Maintanance_Dareldyafa\obj\Debug\Maintenance_Application.Comments.resources
 D:\Github\Maintanance_Dareldyafa\obj\Debug\Maintenance_Application.SignUp.resources
 D:\Github\Maintanance_Dareldyafa\obj\Debug\Maintenance_Application.Changepass.resources
+D:\Github\Maintanance_Dareldyafa\bin\Debug\SixLabors.Fonts.dll
+D:\Github\Maintanance_Dareldyafa\bin\Debug\SixLabors.Fonts.xml
+D:\Github\Maintanance_Dareldyafa\bin\Debug\System.IO.Packaging.dll
+D:\Github\Maintanance_Dareldyafa\bin\Debug\System.IO.Packaging.xml

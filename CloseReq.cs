@@ -161,9 +161,15 @@ namespace Maintenance_Application
            WorkerID, 
            ManagerID,
            Description AS نوتس,
-           DateSubmitted,      -- Add DateSubmitted field
+           DateSubmitted,
+
+
            DateCompleted ,
-           DateReceived as  وقت_استلام_العطل                 -- Add DateClosed field
+           DateReceived as  وقت_استلام_العطل ,
+            DateEnded As اكتمال_العطل
+
+
+
            FROM vw_RequestDetails 
     WHERE StatusID IN (1,2,3,6)"; // Only fetch records where StatusID is In Progress
 

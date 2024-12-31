@@ -251,7 +251,8 @@ SELECT RequestID,
        DateSubmitted,      -- Add DateSubmitted field
        DateCompleted         -- Add DateClosed field
        FROM vw_RequestDetails 
-WHERE StatusID IN (1,2,5,6)"; // Only fetch records where StatusID is Opened
+WHERE StatusID IN (1,2,5,6)
+"; // Only fetch records where StatusID is Opened
 
             try
             {
@@ -644,6 +645,33 @@ WHERE StatusID IN (1,2,5,6)"; // Only fetch records where StatusID is Opened
                         else if (currentStatus == 2)
                         {
                             newStatus = 3; // Update to status 3
+
+                            // If status changes to 3, update DateEnded
+                            using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                            {
+                                updateCommand.Parameters.AddWithValue("@WorkerID", workerId);
+                                updateCommand.Parameters.AddWithValue("@StatusID", newStatus);
+                                updateCommand.Parameters.AddWithValue("@ManagerID", managerId);
+                                updateCommand.Parameters.AddWithValue("@RequestID", requestId);
+
+                                // Additional query to set DateEnded if status is updated to 3
+                                string updateDateEndedQuery = @"UPDATE Requests 
+                                        SET DateEnded = GETDATE() 
+                                        WHERE RequestID = @RequestID AND StatusID = 3";
+
+                                using (SqlCommand dateEndedCommand = new SqlCommand(updateDateEndedQuery, connection))
+                                {
+                                    dateEndedCommand.Parameters.AddWithValue("@RequestID", requestId);
+                                    int dateEndedRowsAffected = dateEndedCommand.ExecuteNonQuery();
+
+                                    if (dateEndedRowsAffected > 0)
+                                    {
+                                       
+                                    }
+                                }
+
+                               
+                            }
                         }
                         else if (currentStatus == 5)
                         {
@@ -710,7 +738,44 @@ WHERE StatusID IN (1,2,5,6)"; // Only fetch records where StatusID is Opened
                                 }
                                 else
                                 {
-                                    MessageBox.Show("الطلب اكتمل");
+
+
+                                  
+
+
+                                    // If status changes to 3, update DateEnded
+                                   
+                                        updateCommand.Parameters.AddWithValue("@WorkerID", workerId);
+                                        updateCommand.Parameters.AddWithValue("@StatusID", newStatus);
+                                        updateCommand.Parameters.AddWithValue("@ManagerID", managerId);
+                                        updateCommand.Parameters.AddWithValue("@RequestID", requestId);
+
+                                        // Additional query to set DateEnded if status is updated to 3
+                                        string updateDateEndedQuery = @"UPDATE Requests 
+                                        SET DateEnded = GETDATE() 
+                                        WHERE RequestID = @RequestID AND StatusID = 3";
+
+                                        using (SqlCommand dateEndedCommand = new SqlCommand(updateDateEndedQuery, connection))
+                                        {
+                                            dateEndedCommand.Parameters.AddWithValue("@RequestID", requestId);
+                                            int dateEndedRowsAffected = dateEndedCommand.ExecuteNonQuery();
+
+                                           
+                                        }
+
+                                       
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show("الطلب اكتمل");
+                                            LoadAllRequests(); // Refresh the DataGridView after the update
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Update failed. No rows were affected.");
+                                        }
+                                    
+
+
                                 }
                                 LoadAllRequests(); // Refresh the DataGridView after the update
                             }

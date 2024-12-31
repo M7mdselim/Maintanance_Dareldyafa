@@ -300,7 +300,9 @@ SELECT RequestID,
        DateSubmitted,      -- Add DateSubmitted field
        DateCompleted , 
        DateReceived as  وقت_استلام_العطل ,
-Closername as مغلق_البلاغ
+DateEnded As اكتمال_العطل
+
+,Closername as مغلق_البلاغ
                                           --  Add DateClosed field
 FROM vw_RequestDetails 
 WHERE StatusID = 4  
@@ -577,5 +579,79 @@ WHERE StatusID = 4
         {
 
         }
+
+
+
+
+
+
+        private void ApplyFilter()
+        {
+            if (FollowingReqGridView.DataSource is DataTable dataTable)
+            {
+                string filter = "";
+
+                if (filterselectioncombo.SelectedIndex == 0)  // "اسم المبلغ" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter = $"اسم_المبلغ LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+                else if (filterselectioncombo.SelectedIndex == 1)  // "المكان" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter = $"المكان LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                else if (filterselectioncombo.SelectedIndex == 2)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"رقم_الغرفه LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+
+                else if (filterselectioncombo.SelectedIndex == 3)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"القائم_على_العطل LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                else if (filterselectioncombo.SelectedIndex == 4)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"مغلق_البلاغ LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                // Apply the filter to the DataTable
+                dataTable.DefaultView.RowFilter = filter;
+            }
+
+           
+        }
+
+
+
+      
+
+        
+
+        private void filterselectioncombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void filteringTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
     }
-    }
+}

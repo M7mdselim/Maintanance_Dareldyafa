@@ -14,12 +14,15 @@ namespace Maintenance_Application
             this.ExportToExcelButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.filteringTxtBox = new System.Windows.Forms.TextBox();
+            this.filterselectioncombo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FollowingReqGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(389, 553);
+            this.datePicker.Location = new System.Drawing.Point(465, 552);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(251, 20);
             this.datePicker.TabIndex = 0;
@@ -77,7 +80,7 @@ namespace Maintenance_Application
             // 
             // ExportToExcelButton
             // 
-            this.ExportToExcelButton.Location = new System.Drawing.Point(282, 553);
+            this.ExportToExcelButton.Location = new System.Drawing.Point(10, 498);
             this.ExportToExcelButton.Name = "ExportToExcelButton";
             this.ExportToExcelButton.Size = new System.Drawing.Size(70, 23);
             this.ExportToExcelButton.TabIndex = 22;
@@ -110,9 +113,45 @@ namespace Maintenance_Application
             this.label3.TabIndex = 49;
             this.label3.Text = "تقرير شهري صيانه";
             // 
+            // filteringTxtBox
+            // 
+            this.filteringTxtBox.Location = new System.Drawing.Point(209, 574);
+            this.filteringTxtBox.Name = "filteringTxtBox";
+            this.filteringTxtBox.Size = new System.Drawing.Size(229, 20);
+            this.filteringTxtBox.TabIndex = 58;
+            this.filteringTxtBox.TextChanged += new System.EventHandler(this.filteringTxtBox_TextChanged);
+            // 
+            // filterselectioncombo
+            // 
+            this.filterselectioncombo.FormattingEnabled = true;
+            this.filterselectioncombo.Items.AddRange(new object[] {
+            "اسم المبلغ",
+            "المكان",
+            "الغرفه",
+            "القائم_على_العطل",
+            "مغلق_البلاغ"});
+            this.filterselectioncombo.Location = new System.Drawing.Point(209, 528);
+            this.filterselectioncombo.Name = "filterselectioncombo";
+            this.filterselectioncombo.Size = new System.Drawing.Size(121, 21);
+            this.filterselectioncombo.TabIndex = 57;
+            this.filterselectioncombo.SelectedIndexChanged += new System.EventHandler(this.filterselectioncombo_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(336, 529);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 22);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "بحث عن طريق";
+            // 
             // MonthlyReport
             // 
             this.ClientSize = new System.Drawing.Size(911, 617);
+            this.Controls.Add(this.filteringTxtBox);
+            this.Controls.Add(this.filterselectioncombo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ExportToExcelButton);
@@ -139,5 +178,8 @@ namespace Maintenance_Application
         private Button ExportToExcelButton;
         private Label label2;
         private Label label3;
+        private TextBox filteringTxtBox;
+        private ComboBox filterselectioncombo;
+        private Label label1;
     }
 }

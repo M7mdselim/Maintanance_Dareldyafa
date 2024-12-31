@@ -14,12 +14,15 @@ namespace Maintenance_Application
             this.backButton = new System.Windows.Forms.Button();
             this.ExportToExcelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.filterselectioncombo = new System.Windows.Forms.ComboBox();
+            this.filteringTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.FollowingReqGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(389, 553);
+            this.datePicker.Location = new System.Drawing.Point(465, 552);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(251, 20);
             this.datePicker.TabIndex = 0;
@@ -89,7 +92,7 @@ namespace Maintenance_Application
             // 
             // ExportToExcelButton
             // 
-            this.ExportToExcelButton.Location = new System.Drawing.Point(282, 553);
+            this.ExportToExcelButton.Location = new System.Drawing.Point(12, 499);
             this.ExportToExcelButton.Name = "ExportToExcelButton";
             this.ExportToExcelButton.Size = new System.Drawing.Size(70, 23);
             this.ExportToExcelButton.TabIndex = 22;
@@ -110,9 +113,45 @@ namespace Maintenance_Application
             this.label1.Text = "Maintenance";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(335, 529);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 22);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "بحث عن طريق";
+            // 
+            // filterselectioncombo
+            // 
+            this.filterselectioncombo.FormattingEnabled = true;
+            this.filterselectioncombo.Items.AddRange(new object[] {
+            "اسم المبلغ",
+            "المكان",
+            "الغرفه",
+            "القائم_على_العطل",
+            "مغلق_البلاغ"});
+            this.filterselectioncombo.Location = new System.Drawing.Point(208, 528);
+            this.filterselectioncombo.Name = "filterselectioncombo";
+            this.filterselectioncombo.Size = new System.Drawing.Size(121, 21);
+            this.filterselectioncombo.TabIndex = 54;
+            this.filterselectioncombo.SelectedIndexChanged += new System.EventHandler(this.filterselectioncombo_SelectedIndexChanged);
+            // 
+            // filteringTxtBox
+            // 
+            this.filteringTxtBox.Location = new System.Drawing.Point(208, 574);
+            this.filteringTxtBox.Name = "filteringTxtBox";
+            this.filteringTxtBox.Size = new System.Drawing.Size(229, 20);
+            this.filteringTxtBox.TabIndex = 55;
+            this.filteringTxtBox.TextChanged += new System.EventHandler(this.filteringTxtBox_TextChanged);
+            // 
             // DailyReport
             // 
             this.ClientSize = new System.Drawing.Size(911, 617);
+            this.Controls.Add(this.filteringTxtBox);
+            this.Controls.Add(this.filterselectioncombo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ExportToExcelButton);
             this.Controls.Add(this.backButton);
@@ -139,5 +178,8 @@ namespace Maintenance_Application
         private Button backButton;
         private Button ExportToExcelButton;
         private Label label1;
+        private Label label2;
+        private ComboBox filterselectioncombo;
+        private TextBox filteringTxtBox;
     }
 }

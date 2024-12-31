@@ -369,10 +369,12 @@ SELECT RequestID,
        Description AS نوتس,
        DateSubmitted,      -- Add DateSubmitted field
        DateCompleted,
-       DateReceived as  وقت_استلام_العطل,-- Add DateClosed field
-      Closername as مغلق_العطل
+       DateReceived as  وقت_استلام_العطل,
+DateEnded As اكتمال_العطل,
+-- Add DateClosed field
+      Closername as مغلق_البلاغ
 FROM vw_RequestDetails 
-WHERE StatusID = 4 
+WHERE StatusID = 4
   AND YEAR(DateCompleted) = @Year 
   AND MONTH(DateCompleted) = @Month";  // Filter by year and month
 
@@ -566,8 +568,8 @@ WHERE StatusID = 4
                         {
                             var worksheet = workbook.Worksheets.Add("Daily Report");
 
+                            // Add column headers
                             int colIndex = 1; // Column index in Excel starts from 1
-                                              // Add column headers
                             for (int i = 0; i < FollowingReqGridView.Columns.Count; i++)
                             {
                                 if (FollowingReqGridView.Columns[i].Visible)
@@ -585,7 +587,8 @@ WHERE StatusID = 4
                                 {
                                     if (FollowingReqGridView.Columns[j].Visible)
                                     {
-                                        worksheet.Cell(i + 2, colIndex).Value = FollowingReqGridView.Rows[i].Cells[j].Value?.ToString() ?? string.Empty;
+                                        var cellValue = FollowingReqGridView.Rows[i].Cells[j].Value;
+                                        worksheet.Cell(i + 2, colIndex).Value = cellValue?.ToString() ?? string.Empty;
                                         colIndex++;
                                     }
                                 }
@@ -594,6 +597,7 @@ WHERE StatusID = 4
                             // Auto-size columns based on content
                             worksheet.Columns().AdjustToContents();
 
+                            // Save the workbook
                             workbook.SaveAs(saveFileDialog.FileName);
                         }
 
@@ -601,11 +605,12 @@ WHERE StatusID = 4
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred while exporting data to Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An error occurred while exporting data to Excel:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -620,5 +625,78 @@ WHERE StatusID = 4
         {
 
         }
+
+
+
+        private void ApplyFilter()
+        {
+            if (FollowingReqGridView.DataSource is DataTable dataTable)
+            {
+                string filter = "";
+
+                if (filterselectioncombo.SelectedIndex == 0)  // "اسم المبلغ" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter = $"اسم_المبلغ LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+                else if (filterselectioncombo.SelectedIndex == 1)  // "المكان" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter = $"المكان LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                else if (filterselectioncombo.SelectedIndex == 2)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"رقم_الغرفه LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+
+                else if (filterselectioncombo.SelectedIndex == 3)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"القائم_على_العطل LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                else if (filterselectioncombo.SelectedIndex == 4)  // "الغرفه" selected
+                {
+                    if (!string.IsNullOrWhiteSpace(filteringTxtBox.Text))
+                    {
+                        filter += $"مغلق_البلاغ LIKE '%{filteringTxtBox.Text}%'";
+                    }
+                }
+
+                // Apply the filter to the DataTable
+                dataTable.DefaultView.RowFilter = filter;
+            }
+
+
+        }
+
+
+
+
+
+
+
+        private void filterselectioncombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void filteringTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+      
     }
 }
