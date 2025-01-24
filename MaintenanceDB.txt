@@ -1,0 +1,201 @@
+CREATE TABLE Areas (
+    AreaID INT PRIMARY KEY IDENTITY(1,1),
+    AreaName NVARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Rooms (
+    RoomID INT PRIMARY KEY IDENTITY(1,1),
+    AreaID INT NOT NULL,  -- Foreign key to Areas table
+    RoomNumber NVARCHAR(10) NOT NULL,
+    RoomType NVARCHAR(50),
+    FOREIGN KEY (AreaID) REFERENCES Areas(AreaID)
+);
+
+
+CREATE TABLE Status (
+    StatusID INT PRIMARY KEY IDENTITY(1,1),
+    StatusName NVARCHAR(50) NOT NULL
+);
+
+
+
+
+
+INSERT INTO Areas (AreaName)
+VALUES ('Palace Hotel');
+
+
+
+INSERT INTO Status (StatusName)
+VALUES ('Pending'), ('In Progress'), ('Completed'), ('Closed');
+
+
+
+
+INSERT INTO Rooms (AreaID, RoomNumber, RoomType)
+VALUES (1, '101', 'Single');
+
+
+CREATE TABLE Roles (
+    RoleID INT PRIMARY KEY,
+    RoleName NVARCHAR(50) NOT NULL
+);
+
+
+
+INSERT INTO Roles (RoleID, RoleName)
+VALUES (1, 'Receptionist'), (2, 'Manager'), (3, 'Maintenance Worker');
+
+
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(50) NOT NULL,
+    Password NVARCHAR(50) NOT NULL,  -- Store encrypted passwords
+    RoleID INT NOT NULL,  -- Foreign Key to Roles table
+	Fullname NVARCHAR(50),
+    FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
+);
+
+
+
+CREATE TABLE Requests (
+    RequestID INT PRIMARY KEY IDENTITY(1,1), -- Unique identifier for each request
+    UserID INT NOT NULL,                     -- User who submitted the request
+    AreaID INT NOT NULL,                     -- Area ID of the request
+    RoomID INT NOT NULL,                     -- Room number associated with the request
+    MaintenanceTypeID NVARCHAR(100) NOT NULL, -- Type of maintenance needed
+    WorkerID INT,                            -- Worker assigned to the task
+    StatusID INT NOT NULL,                   -- Status of the request (Pending, In Progress, Completed)
+    ManagerID INT ,                  -- Manager who received and assigned the request
+    Description NVARCHAR(MAX),               -- Detailed notes about the maintenance issue
+    DateSubmitted DATETIME DEFAULT GETDATE(), -- Date request was submitted
+    DateCompleted DATETIME NULL,
+DateReceived   DATETIME NULL           -- Date request was completed (nullable)
+    
+    -- Foreign keys can be added here if needed
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (AreaID) REFERENCES Areas(AreaID),
+    FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
+    FOREIGN KEY (WorkerID) REFERENCES Users(UserID),  -- Assuming Worker is also a user
+    FOREIGN KEY (ManagerID) REFERENCES Users(UserID),
+    FOREIGN KEY (StatusID) REFERENCES Status(StatusID)  -- If you have a Status table
+);
+
+
+ALTER TABLE [MaintenanceDB].[dbo].[Requests]
+ADD [Closername] NVARCHAR(30) NULL;
+
+
+
+
+
+
+
+  ALTER VIEW vw_RequestDetails AS
+SELECT 
+    r.RequestID,
+    u.Fullname AS اسم_المبلغ,                     -- User who submitted the request
+    a.AreaName AS المكان,                          -- Area name associated with the request
+    rm.RoomNumber AS رقم_الغرفه,                   -- Room number associated with the request
+    r.MaintenanceTypeID AS نوع_العطل,               -- Maintenance type as a string
+    w.FullName AS القائم_على_العطل,                -- Worker assigned to the task
+    s.StatusName AS الحاله,                         -- Status of the request
+    m.Fullname AS مستلم_العطل,
+
+	r.Description,-- Manager assigned to the request
+    r.StatusID,                                     -- Status ID for updates
+    r.UserID,                                       -- User ID for updates
+    r.AreaID,                                       -- Area ID for updates
+    r.RoomID,                                       -- Room ID for updates
+    r.WorkerID,                                     -- Worker ID for updates
+    r.ManagerID,                                    -- Manager ID for updates
+    r.DateSubmitted,
+	r.DateCompleted,-- Add DateSubmitted field
+	r.[DateReceived],
+	r.[Closername]
+FROM 
+    Requests r
+INNER JOIN 
+    Users u ON r.UserID = u.UserID
+LEFT JOIN 
+    Areas a ON r.AreaID = a.AreaID
+LEFT JOIN 
+    Rooms rm ON r.RoomID = rm.RoomID
+LEFT JOIN 
+    Users w ON r.WorkerID = w.UserID
+LEFT JOIN 
+    Users m ON r.ManagerID = m.UserID
+LEFT JOIN 
+    Status s ON r.StatusID = s.StatusID;
+
+
+CREATE TABLE ExtraRequests (
+    ExtraRequestID INT PRIMARY KEY IDENTITY(1,1),   -- Unique identifier for each extra request
+    RequestID INT NOT NULL,                         -- Reference to the original request (Foreign Key)
+    RequestedName NVARCHAR(255) NOT NULL,           -- Name of the person or entity that requested the                          -- Status of the extra request (Pending, In Progress, Completed)
+    Notes NVARCHAR(MAX),                            -- Notes or additional details about the extra request
+    DateSubmitted DATETIME DEFAULT GETDATE(),       -- Date when the extra request was submitted
+
+    -- Foreign key constraint linking to Requests table
+    FOREIGN KEY (RequestID) REFERENCES Requests(RequestID),
+    -- Link to the Status table for status tracking
+);
+
+
+
+ALTER TABLE [MaintenanceDB].[dbo].[Requests]
+ADD [DateReceived] DATETIME NULL;
+
+ALTER TABLE [MaintenanceDB].[dbo].[Requests]
+ADD [Closername] NVARCHAR(30) NULL;
+
+
+........................
+
+ALTER TABLE [MaintenanceDB].[dbo].[Requests]
+ADD [DateEnded] DATETIME NULL;
+
+
+
+
+
+CREATE OR ALTER VIEW vw_RequestDetails AS
+SELECT 
+    r.RequestID,
+    u.Fullname AS اسم_المبلغ,                     -- User who submitted the request
+    a.AreaName AS المكان,                          -- Area name associated with the request
+    rm.RoomNumber AS رقم_الغرفه,                   -- Room number associated with the request
+    r.MaintenanceTypeID AS نوع_العطل,               -- Maintenance type as a string
+    w.FullName AS القائم_على_العطل,                -- Worker assigned to the task
+    s.StatusName AS الحاله,                         -- Status of the request
+    m.Fullname AS مستلم_العطل,                     -- Manager assigned to the request
+    r.Description,                                 -- Description of the request
+    r.StatusID,                                    -- Status ID for updates
+    r.UserID,                                      -- User ID for updates
+    r.AreaID,                                      -- Area ID for updates
+    r.RoomID,                                      -- Room ID for updates
+    r.WorkerID,                                    -- Worker ID for updates
+    r.ManagerID,                                   -- Manager ID for updates
+    r.DateSubmitted,                               -- Date when the request was submitted
+    r.DateCompleted,                               -- Date when the request was completed
+    r.DateReceived,                                -- Date when the request was received
+    r.Closername,                                  -- Name of the person who closed the request
+    r.DateEnded                                    -- Date when the task was ended
+FROM 
+    Requests r
+INNER JOIN 
+    Users u ON r.UserID = u.UserID
+LEFT JOIN 
+    Areas a ON r.AreaID = a.AreaID
+LEFT JOIN 
+    Rooms rm ON r.RoomID = rm.RoomID
+LEFT JOIN 
+    Users w ON r.WorkerID = w.UserID
+LEFT JOIN 
+    Users m ON r.ManagerID = m.UserID
+LEFT JOIN 
+    Status s ON r.StatusID = s.StatusID;
+
+
